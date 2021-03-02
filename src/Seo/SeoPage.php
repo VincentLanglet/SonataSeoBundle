@@ -24,12 +24,12 @@ final class SeoPage implements SeoPageInterface
     protected $title;
 
     /**
-     * @var array
+     * @var array<string, array<string, mixed>>
      */
     protected $metas;
 
     /**
-     * @var array
+     * @var array<string, string>
      */
     protected $htmlAttributes;
 
@@ -44,17 +44,17 @@ final class SeoPage implements SeoPageInterface
     protected $separator;
 
     /**
-     * @var array
+     * @var array<string, string>
      */
     protected $headAttributes;
 
     /**
-     * @var array
+     * @var array<string, string>
      */
     protected $langAlternates;
 
     /**
-     * @var array
+     * @var array<string, string>
      */
     protected $oembedLinks;
 
@@ -111,7 +111,7 @@ final class SeoPage implements SeoPageInterface
                 'Passing meta content of type %s in %s is deprecated since version 2.8 and will be unsupported in version 3. Please cast the value to a string first.',
                 \gettype($content),
                 __METHOD__
-            ), E_USER_DEPRECATED);
+            ), \E_USER_DEPRECATED);
         }
 
         if (!isset($this->metas[$type])) {
@@ -206,9 +206,6 @@ final class SeoPage implements SeoPageInterface
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function getHeadAttributes()
     {
         return $this->headAttributes;
@@ -271,7 +268,7 @@ final class SeoPage implements SeoPageInterface
 
     public function getLangAlternates()
     {
-        return  $this->langAlternates;
+        return $this->langAlternates;
     }
 
     public function addOEmbedLink($title, $link)
@@ -281,20 +278,15 @@ final class SeoPage implements SeoPageInterface
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function getOEmbedLinks()
     {
         return $this->oembedLinks;
     }
 
     /**
-     * @param mixed $meta
-     *
-     * @return array
+     * @param string|array $meta
      */
-    private function normalize($meta)
+    private function normalize($meta): array
     {
         if (\is_string($meta)) {
             return [$meta, []];

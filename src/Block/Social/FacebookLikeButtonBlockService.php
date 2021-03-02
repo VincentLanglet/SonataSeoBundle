@@ -53,7 +53,11 @@ final class FacebookLikeButtonBlockService extends BaseFacebookSocialPluginsBloc
         'recommend' => 'form.label_action_recommend',
     ];
 
+<<<<<<< HEAD
     public function configureSettings(OptionsResolver $resolver): void
+=======
+    public function configureSettings(OptionsResolver $resolver)
+>>>>>>> 2.x
     {
         $resolver->setDefaults([
             'template' => '@SonataSeo/Block/block_facebook_like_button.html.twig',
@@ -67,12 +71,16 @@ final class FacebookLikeButtonBlockService extends BaseFacebookSocialPluginsBloc
         ]);
     }
 
+<<<<<<< HEAD
     public function configureCreateForm(FormMapper $formMapper, BlockInterface $block): void
     {
         $this->configureEditForm($formMapper, $block);
     }
 
     public function configureEditForm(FormMapper $formMapper, BlockInterface $block): void
+=======
+    public function buildEditForm(FormMapper $formMapper, BlockInterface $block)
+>>>>>>> 2.x
     {
         $formMapper->add('settings', ImmutableArrayType::class, [
             'keys' => [
@@ -112,11 +120,15 @@ final class FacebookLikeButtonBlockService extends BaseFacebookSocialPluginsBloc
         ]);
     }
 
+<<<<<<< HEAD
     public function validate(ErrorElement $errorElement, BlockInterface $block): void
     {
     }
 
     public function getMetadata(): MetadataInterface
+=======
+    public function getBlockMetadata($code = null)
+>>>>>>> 2.x
     {
         return new Metadata('sonata.seo.block.facebook.like_button', null, null, 'SonataSeoBundle', [
             'class' => 'fa fa-facebook-official',

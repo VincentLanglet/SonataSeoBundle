@@ -42,8 +42,8 @@ final class BreadcrumbListener
     {
         if (!$breadcrumb instanceof BreadcrumbInterface) {
             @trigger_error(
-                sprintf('Passing a %s class is deprecated since 2.x, pass a %s instead', BlockServiceInterface::class, BreadcrumbInterface::class),
-                E_USER_DEPRECATED
+                sprintf('Passing a %s class is deprecated since sonata-project/seo-bundle 2.12, pass a %s instead.', BlockServiceInterface::class, BreadcrumbInterface::class),
+                \E_USER_DEPRECATED
             );
         }
 
